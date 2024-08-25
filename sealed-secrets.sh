@@ -25,7 +25,7 @@ inspect_sealed_secret() {
 }
 
 validate_sealed_secret() {
-    cat mysealedsecret.yaml | kubeseal --validate
+    cat mysealedsecret.yaml | kubeseal --validate && echo 'Validate Sealed Secret!'    
 }
 
 decrypt_secret() {
