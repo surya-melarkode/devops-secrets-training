@@ -17,10 +17,11 @@ create_sealed_secret() {
     kubectl create secret generic demo-secret --dry-run=client --from-literal=foo=bar -o yaml
     kubectl create secret generic demo-secret --dry-run=client --from-literal=foo=bar -o yaml  \
         | kubeseal --controller-name=sealed-secrets-controller --controller-namespace=kube-system --format yaml --cert mycert.pem > mysealedsecret.yaml
+    kubectl create -f mysealedsecret.yaml
 }
 
 inspect_sealed_secret() {
-    kubectl get sealedsecret -o yaml
+    kubectl get sealedsecret demo-secret -o yaml
 }
 
 decrypt_secret() {
