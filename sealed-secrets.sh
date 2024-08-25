@@ -24,6 +24,10 @@ inspect_sealed_secret() {
     kubectl get sealedsecret demo-secret -o yaml
 }
 
+validate_sealed_secret() {
+    cat mysealedsecret.yaml | kubeseal --validate
+}
+
 decrypt_secret() {
     kubectl get secret demo-secret -o yaml
 }
