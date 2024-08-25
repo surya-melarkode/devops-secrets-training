@@ -20,11 +20,11 @@
 1. Make the helper scripts executable: e.g. `chmod +x sealed-secrets.sh`
 ### Sealed Secrets Tutorial
 
-1. Setup & deploy sealed secrets controller: `./sealed-secrets.sh;setup_sealed_secrets`
-1. Setup kubeseal client: `./sealed-secrets.sh;setup_kubeseal`
-1. Create a sealed secret: `./sealed-secrets.sh;create_sealed_secret`
-1. Inspect the sealed secret: `./sealed-secrets.sh;inspect_sealed_secret`
-1. Decrypt the secret (not sealed secret): `./sealed-secrets.sh;decrypt_secret`
+1. Setup & deploy sealed secrets controller: `bash -c "source sealed-secrets.sh; setup_sealed_secrets"`
+1. Setup kubeseal client: `bash -c "source sealed-secrets.sh; setup_kubeseal"`
+1. Create a sealed secret: `bash -c "source sealed-secrets.sh; create_sealed_secret"`
+1. Inspect the sealed secret: `bash -c "source sealed-secrets.sh; inspect_sealed_secret"`
+1. Decrypt the secret (not sealed secret): `bash -c "source sealed-secrets.sh; decrypt_secret"`
 
 ## References
 
