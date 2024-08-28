@@ -1,3 +1,3 @@
-path "secret/data/webapp/config" {
-    capabilities = ["read"]
+path "secret/data/webapp/config" { 
+    capabilities = ["read"] 
 }
