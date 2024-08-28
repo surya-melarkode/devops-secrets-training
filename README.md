@@ -1,5 +1,10 @@
 # DevOps Secrets Training
 
+> [!IMPORTANT]
+> Disclaimer: The code in shell script was put together using example code found in various resources. 
+> These resources have been mentioned in the references section of this document. 
+> The sole purpose of the shell script is for demo and self-paced practice. 
+
 > [!CAUTION]
 > Steps used in the demo are meant only for educational purposes.
 > They should not be used in production. Please follow best practices when deploying to production.
@@ -31,3 +36,4 @@
 1. https://github.com/surya-melarkode/devops-secrets-training
 1. https://github.com/bitnami-labs/sealed-secrets?tab=readme-ov-file#installation
 1. https://killercoda.com/playgrounds/scenario/kubernetes
+1. https://www.digitalocean.com/community/developer-center/how-to-encrypt-kubernetes-secrets-using-sealed-secrets-in-doks
