@@ -30,6 +30,8 @@
 1. Create a sealed secret: `bash -c "source sealed-secrets.sh; create_sealed_secret"`
 1. Inspect the sealed secret: `bash -c "source sealed-secrets.sh; inspect_sealed_secret"`
 1. Decrypt the secret (not sealed secret): `bash -c "source sealed-secrets.sh; decrypt_secret"`
+
+### Sealed Secrets Tutorial
 1. Setup vault: `bash -c "source vault.sh; setup_vault"`
 1. Setup vault: `bash -c "source vault.sh; unseal_vault"`
 1. Setup vault: `bash -c "source vault.sh; create_webapp_vault_secret"`
