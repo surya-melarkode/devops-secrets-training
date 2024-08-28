@@ -25,20 +25,7 @@ create_webapp_vault_secret() {
         && vault kv get secret/webapp/config"
 }
 
-configure_k8s_authN() {
-    kubectl exec -it vault-0 -- ash -c "vault auth enable kubernetes \
-    && vault write auth/kubernetes/config kubernetes_host='https://$KUBERNETES_PORT_443_TCP_ADDR:443'\
-    && vault policy write webapp - <<EOF
-        path \"secret/data/webapp/config\" {
-        capabilities = [\"read\"]
-        }
-        EOF \
-    && vault write auth/kubernetes/role/webapp \
-        bound_service_account_names=vault \
-        bound_service_account_namespaces=default \
-        policies=webapp \
-        ttl=24h"
-}
+# kubectl exec --stdin=true --tty=true vault-0 -- /bin/sh
 
 # vault auth enable kubernetes
 # vault write auth/kubernetes/config kubernetes_host="https://$KUBERNETES_PORT_443_TCP_ADDR:443"
@@ -57,10 +44,10 @@ configure_k8s_authN() {
 
 # kubectl apply --filename deployment-01-webapp.yml
 
+# kubectl get all,cm,secret,ing -A
 # kubectl get pods
 
-# kubectl port-forward \
-#     $(kubectl get pod -l app=webapp -o jsonpath="{.items[0].metadata.name}") \
+# kubectl port-forward $(kubectl get pod -l app=webapp -o jsonpath="{.items[0].metadata.name}") \
 #     8080:8080
 
 # curl http://localhost:8080
