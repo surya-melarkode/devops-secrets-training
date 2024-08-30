@@ -58,9 +58,23 @@
         ttl=24h
     ```
     1. Create the webapp deployment k8s and verify the pod is running, `kubectl apply --filename deployment-01-webapp.yml` and `kubectl get all,cm,secret,ing -A`
-    1. Port the localhost:8080 to web app pod: `kubectl port-forward $(kubectl get pod -l app=webapp -o jsonpath="{.items[0].metadata.name}") \
+    1. Port the localhost:8080 to web app pod: `kubectl port-forward $(kubectl get pod -l app=webapp -o jsonpath="{.items[0].metadata.name}") 
     8080:8080`
     1. Verify that vault secret can be access by webapp pod: `curl http://localhost:8080`
+
+### SOPS Tutorial
+1. Download into vault: `wget https://github.com/getsops/sops/releases/download/v3.9.0/sops-v3.9.0.linux.amd64`
+1. Move the binary in to your PATH: `mv sops-v3.9.0.linux.amd64 /usr/local/bin/sops`
+1. Make the binary executable: `chmod +x /usr/local/bin/sops`
+1. Log into vault-0 again: `kubectl exec --stdin=true --tty=true vault-0 -- /bin/sh`
+    1. Set the environment variable: `export VAULT_ADDR=http://127.0.0.1:8200`
+    1. Verify the vault status: `vault status`
+    1. Enable a transit secret engine for sops: `vault secrets enable -path=sops transit`
+    1. Create sample keys:
+        1. `vault write sops/keys/firstkey type=rsa-4096`
+        1. `vault write sops/keys/secondkey type=rsa-2048`
+        1. `vault write sops/keys/thirdkey type=chacha20-poly1305`
+    1. Create an encrypted secret file: `sops --hc-vault-transit $VAULT_ADDR/v1/sops/keys/firstkey example.yml`
 
 ## References
 
