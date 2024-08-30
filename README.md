@@ -1,6 +1,10 @@
 # DevOps Secrets Training
 
 > [!IMPORTANT]
+> Disclaimer: I specify Azure, AKS, Vault, ..etc. because, its what I have experience with.
+> The tools discussed today are be used in any environment.  
+
+> [!IMPORTANT]
 > Disclaimer: The code in shell script was put together using example code found in various resources. 
 > These resources have been mentioned in the references section of this document. 
 > The sole purpose of the shell script is for demo and self-paced practice. 
