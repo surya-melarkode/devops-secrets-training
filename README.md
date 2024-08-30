@@ -15,6 +15,8 @@
 
 ## Requirements
 
+1. https://github.com/
+1. https://killercoda.com/playgrounds/
 1. Understanding of basic concepts of git, github, kubernetes, shell (bash)
 1. Paitence to read to many, huge reference documents and online tutorials
 1. Interest/ time to play around in online playgrounds
